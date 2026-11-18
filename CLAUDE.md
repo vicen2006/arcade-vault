@@ -12,16 +12,10 @@ The project follows Spec Driven Design (`/spec` and `/spec-impl` skills from `Kl
 
 Next.js 16.4.6 / React 19.3 — APIs and conventions differ from older training data. Before writing Next.js code, read the relevant guide in `node_modules/next/dist/docs/` (start at `index.md`; sections `01-app/`, `02-pages/`, `03-architecture/`). This project uses the App Router (`app/`). See `AGENTS.md`.
 
-## Commands
-
-```bash
-npm run dev     # dev server (http://localhost:3000)
-npm run build   # production build
-npm start       # serve production build
-npm run lint    # eslint (flat config, eslint.config.mjs)
-```
-
 No test runner is configured.
+
+## Skills
+Usa siempre /frontend-design para diseñar interfaz de usuario.
 
 ## Setup notes
 
