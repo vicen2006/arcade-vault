@@ -1,6 +1,6 @@
 # SPEC 01 — MVP visual de Arcade Vault (5 pantallas)
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** Ninguna
 > **Date:** 2026-11-18
 > **Objective:** Portar a Next.js (App Router, TypeScript) las 5 pantallas de `references/templates/` (biblioteca, detalle, reproductor, auth y salón de la fama) con datos mock, sin implementar ningún juego real.
@@ -116,28 +116,28 @@ Cada paso deja la app arrancable con `npm run dev`.
 
 ## Acceptance criteria
 
-- [ ] `npm run build` y `npm run lint` terminan sin errores.
-- [ ] `/` muestra el hero, el buscador, los chips `TODOS/ARCADE/PUZZLE/SHOOTER/VERSUS` y las 8 tarjetas.
-- [ ] Escribir "caí" en el buscador deja solo la tarjeta CAÍDA; un texto sin coincidencias muestra "NO HAY RESULTADOS".
-- [ ] El chip `SHOOTER` muestra exactamente INVASORES y ROCAS.
-- [ ] Clic en una tarjeta o en su botón JUGAR navega a `/juegos/<id>`.
-- [ ] `/juegos/bloque-buster` muestra título, 4 etiquetas, stat strip (Partidas, Mejor global, Dificultad) y 10 filas de puntuaciones con top 1, 2 y 3 resaltados.
-- [ ] `/juegos/no-existe` devuelve la página 404 de Next.
-- [ ] "▶ JUGAR AHORA" navega a `/juegos/<id>/jugar`; "VOLVER AL VAULT" navega a `/`.
-- [ ] En el reproductor, la puntuación sube sola; PAUSA la detiene y muestra "EN PAUSA"; REANUDAR la retoma.
-- [ ] FIN abre el modal con la puntuación final; "GUARDAR PUNTUACIÓN" muestra "PUNTUACIÓN GUARDADA_" y oculta el input; "JUGAR DE NUEVO" reinicia puntos, vidas y nivel.
-- [ ] El input de iniciales fuerza mayúsculas y máximo 10 caracteres.
-- [ ] SALIR vuelve a `/juegos/<id>`.
-- [ ] `/auth` alterna entre "INICIAR SESIÓN" y "CREAR CUENTA"; el campo de correo solo aparece en la segunda.
-- [ ] Enviar el formulario con usuario `px_kai` guarda `av_user = {"name":"PX_KAI"}`, redirige a `/` y el Nav muestra `PX_KAI ▾`.
-- [ ] Con sesión iniciada, clic en el botón del usuario cierra la sesión y el Nav vuelve a "Iniciar Sesión".
-- [ ] "JUGAR COMO INVITADO" redirige a `/` sin guardar `av_user`.
-- [ ] Recargar con sesión iniciada mantiene el nombre en el Nav y no hay warnings de hidratación en consola.
-- [ ] `/salon` muestra podio (02, 01, 03), tabla de 12 filas y una pestaña por cada juego; cambiar de pestaña cambia los datos.
-- [ ] La fila "TU MEJOR MARCA EN <JUEGO>" aparece solo con sesión iniciada.
-- [ ] A 390 px de ancho no hay scroll horizontal, el Nav muestra el botón `≡` y el panel móvil abre y cierra.
-- [ ] El enlace activo del Nav se resalta: "Biblioteca" en `/`, `/juegos/*` y `/juegos/*/jugar`; "Salón de la Fama" en `/salon`.
-- [ ] No hay errores de consola en ninguna de las 5 rutas.
+- [X] `npm run build` y `npm run lint` terminan sin errores.
+- [X] `/` muestra el hero, el buscador, los chips `TODOS/ARCADE/PUZZLE/SHOOTER/VERSUS` y las 8 tarjetas.
+- [X] Escribir "caí" en el buscador deja solo la tarjeta CAÍDA; un texto sin coincidencias muestra "NO HAY RESULTADOS".
+- [X] El chip `SHOOTER` muestra exactamente INVASORES y ROCAS.
+- [X] Clic en una tarjeta o en su botón JUGAR navega a `/juegos/<id>`.
+- [X] `/juegos/bloque-buster` muestra título, 4 etiquetas, stat strip (Partidas, Mejor global, Dificultad) y 10 filas de puntuaciones con top 1, 2 y 3 resaltados.
+- [X] `/juegos/no-existe` devuelve la página 404 de Next.
+- [X] "▶ JUGAR AHORA" navega a `/juegos/<id>/jugar`; "VOLVER AL VAULT" navega a `/`.
+- [X] En el reproductor, la puntuación sube sola; PAUSA la detiene y muestra "EN PAUSA"; REANUDAR la retoma.
+- [x] FIN abre el modal con la puntuación final; "GUARDAR PUNTUACIÓN" muestra "PUNTUACIÓN GUARDADA_" y oculta el input; "JUGAR DE NUEVO" reinicia puntos, vidas y nivel.
+- [x] El input de iniciales fuerza mayúsculas y máximo 10 caracteres.
+- [x] SALIR vuelve a `/juegos/<id>`.
+- [x] `/auth` alterna entre "INICIAR SESIÓN" y "CREAR CUENTA"; el campo de correo solo aparece en la segunda.
+- [x] Enviar el formulario con usuario `px_kai` guarda `av_user = {"name":"PX_KAI"}`, redirige a `/` y el Nav muestra `PX_KAI ▾`.
+- [x] Con sesión iniciada, clic en el botón del usuario cierra la sesión y el Nav vuelve a "Iniciar Sesión".
+- [x] "JUGAR COMO INVITADO" redirige a `/` sin guardar `av_user`.
+- [x] Recargar con sesión iniciada mantiene el nombre en el Nav y no hay warnings de hidratación en consola.
+- [x] `/salon` muestra podio (02, 01, 03), tabla de 12 filas y una pestaña por cada juego; cambiar de pestaña cambia los datos.
+- [x] La fila "TU MEJOR MARCA EN <JUEGO>" aparece solo con sesión iniciada.
+- [x] A 390 px de ancho no hay scroll horizontal, el Nav muestra el botón `≡` y el panel móvil abre y cierra.
+- [x] El enlace activo del Nav se resalta: "Biblioteca" en `/`, `/juegos/*` y `/juegos/*/jugar`; "Salón de la Fama" en `/salon`.
+- [x] No hay errores de consola en ninguna de las 5 rutas.
 
 ---
 
