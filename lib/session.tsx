@@ -25,6 +25,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
       const raw = localStorage.getItem(STORAGE_KEY);
       const parsed = raw ? JSON.parse(raw) : null;
       if (parsed && typeof parsed.name === "string") {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- lectura tras montaje, evita mismatch de hidratación
         setUser({ name: parsed.name });
       }
     } catch {
