@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FeatureIcon, type FeatureIconKind } from "@/components/home/feature-icon";
 import { FloatingSilhouettes } from "@/components/home/floating-silhouettes";
 import { Reveal } from "@/components/home/reveal";
 import { GAMES } from "@/lib/data";
 import { ACTIVITY, TOP_TODAY } from "@/lib/home-data";
+
+export const metadata: Metadata = {
+  title: "Arcade Vault · El arcade clásico está de vuelta",
+  description: "Juega los mejores clásicos en tu navegador. Sin descargas, sin costo.",
+};
 
 const STATS = [
   { n: "12+", u: "JUEGOS", s: "Y CONTANDO" },
