@@ -2,6 +2,14 @@ import Link from "next/link";
 import { FeatureIcon, type FeatureIconKind } from "@/components/home/feature-icon";
 import { FloatingSilhouettes } from "@/components/home/floating-silhouettes";
 import { Reveal } from "@/components/home/reveal";
+import { GAMES } from "@/lib/data";
+import { ACTIVITY, TOP_TODAY } from "@/lib/home-data";
+
+const STATS = [
+  { n: "12+", u: "JUEGOS", s: "Y CONTANDO" },
+  { n: "MILES", u: "DE PARTIDAS", s: "JUGADAS CADA DÍA" },
+  { n: "GLOBAL", u: "RANKING", s: "COMPITE CON EL MUNDO" },
+];
 
 const FEATURES: { icon: FeatureIconKind; title: string; desc: string; color: string }[] = [
   {
@@ -84,6 +92,96 @@ export default function Home() {
               <div className="ft-desc">{f.desc}</div>
             </div>
           ))}
+        </div>
+      </Reveal>
+
+      {/* GAMES PREVIEW */}
+      <Reveal className="home-section">
+        <div className="section-head">
+          <div className="kicker pixel neon-cyan">{"// 02"}</div>
+          <h2 className="section-title">JUEGOS DISPONIBLES AHORA</h2>
+          <div className="section-rule"></div>
+        </div>
+        <div className="mini-rail">
+          {GAMES.slice(0, 6).map((g) => (
+            <Link key={g.id} href={`/juegos/${g.id}`} className="mini-card">
+              <div className="mini-cover">
+                <div className={"cover-bg " + g.cover}></div>
+              </div>
+              <div className="mini-meta">
+                <div className="mini-title">{g.title}</div>
+                <div className="mini-cat">{g.cat}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+          <Link href="/biblioteca" className="btn lg">
+            VER TODOS LOS JUEGOS →
+          </Link>
+        </div>
+      </Reveal>
+
+      {/* STATS */}
+      <Reveal className="home-stats">
+        <div className="stats-inner">
+          {STATS.map((st, i) => (
+            <div key={st.n} className="stat-block" style={{ transitionDelay: i * 90 + "ms" }}>
+              <div className="stat-n neon-yellow">{st.n}</div>
+              <div className="stat-u pixel">{st.u}</div>
+              <div className="stat-s">{st.s}</div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+
+      {/* RECENT ACTIVITY / LEADERBOARD */}
+      <Reveal className="home-section">
+        <div className="section-head">
+          <div className="kicker pixel neon-yellow">{"// 03"}</div>
+          <h2 className="section-title">ACTIVIDAD EN VIVO</h2>
+          <div className="section-rule"></div>
+        </div>
+        <div className="activity-grid">
+          <div className="activity-card">
+            <div className="ac-head">
+              <div className="ac-title pixel">▸ ÚLTIMAS PUNTUACIONES</div>
+            </div>
+            <div className="ticker">
+              {ACTIVITY.map((r, i) => (
+                <div key={r.player} className="tick-row" style={{ animationDelay: i * 60 + "ms" }}>
+                  <span className={"tk-p neon-" + r.color}>{r.player}</span>
+                  <span className="tk-mid">▸ {r.game}</span>
+                  <span className="tk-s">+{r.score.toLocaleString("es-ES")}</span>
+                  <span className="tk-t">{r.ago}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="activity-card">
+            <div className="ac-head">
+              <div className="ac-title pixel neon-magenta">▸ TOP JUGADORES · HOY</div>
+              <Link href="/salon" className="lb-link">
+                VER SALÓN →
+              </Link>
+            </div>
+            <div className="top-list">
+              {TOP_TODAY.map((r, i) => (
+                <div
+                  key={r.player}
+                  className={"top-row" + (i === 0 ? " top1" : i === 1 ? " top2" : i === 2 ? " top3" : "")}
+                >
+                  <span className="tp-rk">#{String(r.rank).padStart(2, "0")}</span>
+                  <span className="tp-bar">
+                    <span className="tp-fill" style={{ width: 100 - i * 16 + "%" }}></span>
+                  </span>
+                  <span className="tp-p">{r.player}</span>
+                  <span className="tp-s">{r.score.toLocaleString("es-ES")}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Reveal>
     </div>
