@@ -1,6 +1,6 @@
 # SPEC 02 — Home (landing) de Arcade Vault
 
-> **Status:** Aprobado
+> **Status:** implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-11-20
 > **Objective:** Añadir la landing page Home en `/` portada de `references/templates/home-about/` (sin el About), moviendo la Biblioteca a `/biblioteca` y sumando "Inicio" al Nav.
@@ -97,23 +97,23 @@ Cada paso deja la app arrancable con `npm run dev`.
 
 ## Acceptance criteria
 
-- [ ] `npm run build` y `npm run lint` terminan sin errores.
-- [ ] `/` muestra el hero con el título "EL ARCADE CLÁSICO ESTÁ DE VUELTA" y 8 siluetas decorativas.
-- [ ] `/` muestra las secciones numeradas `// 01`, `// 02`, `// 03` y `// 04` más el CTA final "¿LISTO PARA JUGAR?".
-- [ ] La sección 01 tiene 4 tarjetas: JUEGOS CLÁSICOS, 100% GRATIS, LADDER BOARDS y SIEMPRE CRECIENDO.
-- [ ] La sección 02 muestra exactamente 6 mini-tarjetas, las 6 primeras de `GAMES`; clic en una navega a `/juegos/<id>`.
-- [ ] "ÚLTIMAS PUNTUACIONES" muestra 7 filas y "TOP JUGADORES · HOY" muestra 5, con top 1, 2 y 3 resaltados.
-- [ ] "▶ EXPLORAR JUEGOS", "VER TODOS LOS JUEGOS →" e "INSERTAR MONEDA →" navegan a `/biblioteca`.
-- [ ] "✦ CREAR CUENTA" y "EMPEZAR GRATIS →" navegan a `/auth`; "VER SALÓN →" navega a `/salon`.
-- [ ] `/biblioteca` muestra el hero, buscador, chips y las 8 tarjetas igual que antes en `/`.
-- [ ] "VOLVER AL VAULT" (detalle y reproductor) y el enlace de la página del salón que llevaba a la Biblioteca navegan a `/biblioteca`.
-- [ ] El Nav muestra "Inicio", "Biblioteca" y "Salón de la Fama", y no muestra "Acerca de".
-- [ ] "Inicio" está resaltado solo en `/`; "Biblioteca" en `/biblioteca` y `/juegos/*`; "Salón de la Fama" en `/salon`.
-- [ ] Las secciones con `.reveal` pasan a `.in` al entrar en el viewport.
-- [ ] A 390 px de ancho no hay scroll horizontal y las grids se apilan (features 1 col, mini-rail 2 col, actividad 1 col, precios 1 col).
-- [ ] `app/globals.css` no contiene reglas de `/* ===== ABOUT PAGE ===== */`.
-- [ ] No hay errores de consola ni warnings de hidratación en `/`.
-- [ ] Las rutas `/juegos/<id>`, `/juegos/<id>/jugar`, `/auth` y `/salon` siguen funcionando.
+- [X] `npm run build` y `npm run lint` terminan sin errores.
+- [X] `/` muestra el hero con el título "EL ARCADE CLÁSICO ESTÁ DE VUELTA" y 8 siluetas decorativas.
+- [X] `/` muestra las secciones numeradas `// 01`, `// 02`, `// 03` y `// 04` más el CTA final "¿LISTO PARA JUGAR?".
+- [X] La sección 01 tiene 4 tarjetas: JUEGOS CLÁSICOS, 100% GRATIS, LADDER BOARDS y SIEMPRE CRECIENDO.
+- [X] La sección 02 muestra exactamente 6 mini-tarjetas, las 6 primeras de `GAMES`; clic en una navega a `/juegos/<id>`.
+- [X] "ÚLTIMAS PUNTUACIONES" muestra 7 filas y "TOP JUGADORES · HOY" muestra 5, con top 1, 2 y 3 resaltados.
+- [X] "▶ EXPLORAR JUEGOS", "VER TODOS LOS JUEGOS →" e "INSERTAR MONEDA →" navegan a `/biblioteca`.
+- [X] "✦ CREAR CUENTA" y "EMPEZAR GRATIS →" navegan a `/auth`; "VER SALÓN →" navega a `/salon`.
+- [X] `/biblioteca` muestra el hero, buscador, chips y las 8 tarjetas igual que antes en `/`.
+- [x] "VOLVER AL VAULT" (detalle y reproductor) y el enlace de la página del salón que llevaba a la Biblioteca navegan a `/biblioteca`.
+- [x] El Nav muestra "Inicio", "Biblioteca" y "Salón de la Fama", y no muestra "Acerca de".
+- [x] "Inicio" está resaltado solo en `/`; "Biblioteca" en `/biblioteca` y `/juegos/*`; "Salón de la Fama" en `/salon`.
+- [x] Las secciones con `.reveal` pasan a `.in` al entrar en el viewport.
+- [X] A 390 px de ancho no hay scroll horizontal y las grids se apilan (features 1 col, mini-rail 2 col, actividad 1 col, precios 1 col).
+- [X] `app/globals.css` no contiene reglas de `/* ===== ABOUT PAGE ===== */`.
+- [X] No hay errores de consola ni warnings de hidratación en `/`.
+- [X] Las rutas `/juegos/<id>`, `/juegos/<id>/jugar`, `/auth` y `/salon` siguen funcionando.
 
 ---
 
