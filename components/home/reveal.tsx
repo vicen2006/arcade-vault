@@ -5,10 +5,11 @@ import { useEffect, useRef, type ReactNode } from "react";
 interface RevealProps {
   as?: "section" | "div";
   className?: string;
+  "aria-hidden"?: boolean;
   children: ReactNode;
 }
 
-export function Reveal({ as: Tag = "section", className = "", children }: RevealProps) {
+export function Reveal({ as: Tag = "section", className = "", children, ...rest }: RevealProps) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export function Reveal({ as: Tag = "section", className = "", children }: Reveal
   }, []);
 
   return (
-    <Tag ref={ref as never} className={`${className} reveal`.trim()}>
+    <Tag ref={ref as never} className={`${className} reveal`.trim()} {...rest}>
       {children}
     </Tag>
   );
