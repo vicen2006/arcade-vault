@@ -23,3 +23,13 @@ npm run build   # production build
 npm start       # serve production build
 npm run lint    # eslint (flat config, eslint.config.mjs)
 ```
+
+## Variables de entorno
+
+Copia `.env.template` a `.env.local` y rellena los valores (solo servidor, sin prefijo `NEXT_PUBLIC_`):
+
+| Variable | Uso |
+| --- | --- |
+| `RESEND_API_KEY` | Clave de la cuenta de Resend para enviar el formulario de contacto |
+| `CONTACT_TO_EMAIL` | Destinatario de los mensajes. Con `onboarding@resend.dev` debe ser el correo de la cuenta Resend |
+| `CONTACT_FROM_EMAIL` | Remitente, p. ej. `Arcade Vault <onboarding@resend.dev>` |
