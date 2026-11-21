@@ -1,6 +1,6 @@
 # SPEC 03 — About y formulario de contacto con Resend
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01, SPEC 02
 > **Date:** 2026-11-21
 > **Objective:** Añadir la página About en `/acerca`, portada de `references/templates/home-about/about (1).jsx`, con un formulario de contacto que envía el mensaje por correo con Resend mediante una Server Action.
@@ -101,23 +101,23 @@ Cada paso deja la app arrancable con `npm run dev`.
 
 ## Acceptance criteria
 
-- [ ] `npm run build` y `npm run lint` terminan sin errores.
-- [ ] `/acerca` muestra el título "ACERCA DE ARCADE VAULT", el texto de misión y 3 highlights (corazón magenta, navegador cyan, planta verde).
-- [ ] `/acerca` muestra el divisor con 24 píxeles parpadeantes y la sección "CONTÁCTANOS" con los 3 tips.
-- [ ] El Nav muestra "Inicio", "Biblioteca", "Salón de la Fama" y "Acerca de" en escritorio y móvil; "Acerca de" resaltado solo en `/acerca`.
-- [ ] Enviar el formulario con algún campo vacío no llama al servidor y aplica el shake.
-- [ ] Un envío válido entrega un correo a `CONTACT_TO_EMAIL` con asunto `[Arcade Vault] Mensaje de <NOMBRE>` y nombre, correo y mensaje en el cuerpo.
-- [ ] Tras el envío válido se muestra la terminal con "MENSAJE RECIBIDO. TE RESPONDEREMOS PRONTO. GRACIAS, <NOMBRE EN MAYÚSCULAS>."
-- [ ] "ENVIAR OTRO MENSAJE" limpia el formulario y lo vuelve a mostrar.
-- [ ] Durante el envío el botón queda deshabilitado (sin doble envío).
-- [ ] La Server Action rechaza (`invalid`) correo mal formado, campos vacíos o textos que superan `CONTACT_LIMITS`, aunque se salte la validación del cliente.
-- [ ] Con el honeypot relleno no se envía ningún correo y la UI muestra el éxito.
-- [ ] Con `RESEND_API_KEY` ausente o inválida se muestra un mensaje de error, el formulario conserva lo escrito y no hay excepción sin capturar.
-- [ ] `RESEND_API_KEY` no aparece en el bundle del cliente ni en el HTML (búsqueda en `.next/static`).
-- [ ] `.env.local` no está versionado (`git status` limpio de `.env*`).
-- [ ] A 390 px no hay scroll horizontal; `highlight-row` y `contact-grid` se apilan en 1 columna.
-- [ ] No hay errores de consola ni warnings de hidratación en `/acerca`.
-- [ ] Home, Biblioteca, detalle, reproductor, `/auth` y `/salon` siguen funcionando.
+- [X] `npm run build` y `npm run lint` terminan sin errores.
+- [X] `/acerca` muestra el título "ACERCA DE ARCADE VAULT", el texto de misión y 3 highlights (corazón magenta, navegador cyan, planta verde).
+- [X] `/acerca` muestra el divisor con 24 píxeles parpadeantes y la sección "CONTÁCTANOS" con los 3 tips.
+- [X] El Nav muestra "Inicio", "Biblioteca", "Salón de la Fama" y "Acerca de" en escritorio y móvil; "Acerca de" resaltado solo en `/acerca`.
+- [X] Enviar el formulario con algún campo vacío no llama al servidor y aplica el shake.
+- [X] Un envío válido entrega un correo a `CONTACT_TO_EMAIL` con asunto `[Arcade Vault] Mensaje de <NOMBRE>` y nombre, correo y mensaje en el cuerpo.
+- [X] Tras el envío válido se muestra la terminal con "MENSAJE RECIBIDO. TE RESPONDEREMOS PRONTO. GRACIAS, <NOMBRE EN MAYÚSCULAS>."
+- [X] "ENVIAR OTRO MENSAJE" limpia el formulario y lo vuelve a mostrar.
+- [X] Durante el envío el botón queda deshabilitado (sin doble envío).
+- [X] La Server Action rechaza (`invalid`) correo mal formado, campos vacíos o textos que superan `CONTACT_LIMITS`, aunque se salte la validación del cliente.
+- [X] Con el honeypot relleno no se envía ningún correo y la UI muestra el éxito.
+- [X] Con `RESEND_API_KEY` ausente o inválida se muestra un mensaje de error, el formulario conserva lo escrito y no hay excepción sin capturar.
+- [X] `RESEND_API_KEY` no aparece en el bundle del cliente ni en el HTML (búsqueda en `.next/static`).
+- [X] `.env.local` no está versionado (`git status` limpio de `.env*`).
+- [X] A 390 px no hay scroll horizontal; `highlight-row` y `contact-grid` se apilan en 1 columna.
+- [x] No hay errores de consola ni warnings de hidratación en `/acerca`.
+- [x] Home, Biblioteca, detalle, reproductor, `/auth` y `/salon` siguen funcionando.
 
 ---
 
