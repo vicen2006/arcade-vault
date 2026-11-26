@@ -26,10 +26,12 @@ npm run lint    # eslint (flat config, eslint.config.mjs)
 
 ## Variables de entorno
 
-Copia `.env.template` a `.env.local` y rellena los valores (solo servidor, sin prefijo `NEXT_PUBLIC_`):
+Copia `.env.template` a `.env.local` y rellena los valores. Las variables sin prefijo `NEXT_PUBLIC_` son solo de servidor:
 
-| Variable | Uso |
-| --- | --- |
-| `RESEND_API_KEY` | Clave de la cuenta de Resend para enviar el formulario de contacto |
-| `CONTACT_TO_EMAIL` | Destinatario de los mensajes. Con `onboarding@resend.dev` debe ser el correo de la cuenta Resend |
-| `CONTACT_FROM_EMAIL` | Remitente, p. ej. `Arcade Vault <onboarding@resend.dev>` |
+| Variable                               | Uso                                                                                              |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `RESEND_API_KEY`                       | Clave de la cuenta de Resend para enviar el formulario de contacto                               |
+| `CONTACT_TO_EMAIL`                     | Destinatario de los mensajes. Con `onboarding@resend.dev` debe ser el correo de la cuenta Resend |
+| `CONTACT_FROM_EMAIL`                   | Remitente, p. ej. `Arcade Vault <onboarding@resend.dev>`                                         |
+| `NEXT_PUBLIC_SUPABASE_URL`             | URL del proyecto Supabase (pública)                                                              |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Clave publicable de Supabase (pública). Nunca uses la `service_role`                             |
