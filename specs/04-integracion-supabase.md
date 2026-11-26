@@ -81,16 +81,16 @@ Cada paso deja la app arrancable con `npm run dev`.
 
 ## Acceptance criteria
 
-- [ ] `npm run build` y `npm run lint` terminan sin errores y `npx tsc --noEmit` pasa.
-- [ ] Existen `lib/supabase/client.ts`, `lib/supabase/server.ts`, `lib/supabase/proxy.ts` y `proxy.ts`.
-- [ ] `.env.local` contiene las dos variables nuevas y `git status` no lo lista como archivo a versionar.
-- [ ] `.env.template` lista `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` vacías y `README.md` las documenta.
-- [ ] La petición a `/auth/v1/settings` del proyecto con la clave publicable responde 200.
-- [ ] Ambos clientes se instancian y `auth.getSession()` no lanza error.
-- [ ] No se ejecutó ninguna migración ni SQL: `list_migrations` y `list_tables` del MCP quedan igual que antes de la spec.
-- [ ] La clave `service_role` no aparece en el repo ni en `.next/static` (grep).
-- [ ] No quedan archivos ni rutas de prueba de conexión en el repo.
-- [ ] Home, Biblioteca, Salón, detalle, reproductor, `/auth` (mock) y `/acerca` siguen funcionando sin errores de consola.
+- [X] `npm run build` y `npm run lint` terminan sin errores y `npx tsc --noEmit` pasa.
+- [X] Existen `lib/supabase/client.ts`, `lib/supabase/server.ts`, `lib/supabase/proxy.ts` y `proxy.ts`.
+- [X] `.env.local` contiene las dos variables nuevas y `git status` no lo lista como archivo a versionar.
+- [X] `.env.template` lista `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` vacías y `README.md` las documenta.
+- [X] La petición a `/auth/v1/settings` del proyecto con la clave publicable responde 200.
+- [X] Ambos clientes se instancian y `auth.getSession()` no lanza error.
+- [X] No se ejecutó ninguna migración ni SQL: `list_migrations` y `list_tables` del MCP quedan igual que antes de la spec.
+- [X] La clave `service_role` no aparece en el repo ni en `.next/static` (grep).
+- [X] No quedan archivos ni rutas de prueba de conexión en el repo.
+- [X] Home, Biblioteca, Salón, detalle, reproductor, `/auth` (mock) y `/acerca` siguen funcionando sin errores de consola.
 
 ---
 
