@@ -1,6 +1,6 @@
 # SPEC 04 — Integración de Supabase en Next.js
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-11-26
 > **Objective:** Conectar la app Next.js con el proyecto Supabase ya enlazado por MCP (dependencias, variables de entorno, clientes de navegador y servidor y `proxy.ts` de refresco de sesión) sin crear ni modificar nada en la base de datos.
