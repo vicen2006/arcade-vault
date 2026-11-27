@@ -1,6 +1,6 @@
 # SPEC 05 — Juego Asteroids (ROCAS) en la plataforma
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-11-27
 > **Objective:** Portar a TypeScript el Asteroids de `references/started-games/02-asteroids/` y montarlo como juego real de la entrada `rocas` dentro del reproductor, alimentando su HUD y su modal de fin de partida.
@@ -107,23 +107,23 @@ Cada paso deja la app arrancable con `npm run dev`.
 
 ## Acceptance criteria
 
-- [ ] `npm run build`, `npm run lint` y `npx tsc --noEmit` terminan sin errores.
-- [ ] Existen `lib/games/asteroids/constants.ts`, `entities.ts`, `engine.ts` y `components/games/asteroids-canvas.tsx`.
-- [ ] En `/juegos/rocas/jugar` la nave rota (`←` `→`), propulsa (`↑`), dispara una bala por pulsación (`Espacio`) y usa la Bomba Nova (`B`).
-- [ ] Destruir asteroides suma 20 / 50 / 100 según tamaño y el HUD React muestra la puntuación real.
-- [ ] Perder una vida baja el contador del HUD React; al vaciar el campo, el nivel del HUD sube.
-- [ ] Aparecen y funcionan los power-ups triple, escudo, lento e hiper y la Bomba Nova; sus timers y `NOVA [B]` se ven en el canvas.
-- [ ] El canvas no dibuja SCORE, NIVEL, iconos de vida ni el overlay GAME OVER.
-- [ ] Al perder la última vida se abre el modal FIN DEL JUEGO con la puntuación final real.
-- [ ] JUGAR DE NUEVO reinicia la partida (score 0, 3 vidas, nivel 1) y cierra el modal.
-- [ ] FIN abre el modal y detiene el juego.
-- [ ] PAUSA, la tecla `P` y ocultar la pestaña congelan el juego y muestran EN PAUSA; REANUDAR o `P` lo continúan sin salto de `dt`.
-- [ ] Con el modal abierto o en pausa, `Espacio` y las flechas no mueven la nave ni hacen scroll de forma inesperada; con el modal abierto se puede escribir en el input de iniciales.
-- [ ] Tras salir con SALIR y volver varias veces, no hay loops duplicados (velocidad normal) ni errores en consola.
-- [ ] A 375px, 768px y 1440px el canvas mantiene 4:3 y no provoca scroll horizontal.
-- [ ] En emulación táctil se ve el aviso "REQUIERE TECLADO".
-- [ ] Los demás juegos (p. ej. `/juegos/caida/jugar`) siguen con el reproductor mock sin cambios.
-- [ ] `references/started-games/02-asteroids/` queda sin modificar.
+- [x] `npm run build`, `npm run lint` y `npx tsc --noEmit` terminan sin errores.
+- [x] Existen `lib/games/asteroids/constants.ts`, `entities.ts`, `engine.ts` y `components/games/asteroids-canvas.tsx`.
+- [x] En `/juegos/rocas/jugar` la nave rota (`←` `→`), propulsa (`↑`), dispara una bala por pulsación (`Espacio`) y usa la Bomba Nova (`B`).
+- [x] Destruir asteroides suma 20 / 50 / 100 según tamaño y el HUD React muestra la puntuación real.
+- [x] Perder una vida baja el contador del HUD React; al vaciar el campo, el nivel del HUD sube.
+- [x] Aparecen y funcionan los power-ups triple, escudo, lento e hiper y la Bomba Nova; sus timers y `NOVA [B]` se ven en el canvas.
+- [x] El canvas no dibuja SCORE, NIVEL, iconos de vida ni el overlay GAME OVER.
+- [x] Al perder la última vida se abre el modal FIN DEL JUEGO con la puntuación final real.
+- [x] JUGAR DE NUEVO reinicia la partida (score 0, 3 vidas, nivel 1) y cierra el modal.
+- [x] FIN abre el modal y detiene el juego.
+- [x] PAUSA, la tecla `P` y ocultar la pestaña congelan el juego y muestran EN PAUSA; REANUDAR o `P` lo continúan sin salto de `dt`.
+- [x] Con el modal abierto o en pausa, `Espacio` y las flechas no mueven la nave ni hacen scroll de forma inesperada; con el modal abierto se puede escribir en el input de iniciales.
+- [x] Tras salir con SALIR y volver varias veces, no hay loops duplicados (velocidad normal) ni errores en consola.
+- [x] A 375px, 768px y 1440px el canvas mantiene 4:3 y no provoca scroll horizontal.
+- [x] En emulación táctil se ve el aviso "REQUIERE TECLADO".
+- [x] Los demás juegos (p. ej. `/juegos/caida/jugar`) siguen con el reproductor mock sin cambios.
+- [x] `references/started-games/02-asteroids/` queda sin modificar.
 
 ---
 
