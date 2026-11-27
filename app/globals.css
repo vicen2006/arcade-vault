@@ -199,6 +199,14 @@
     .av-nav .hamburger { display: inline-flex; }
   }
 
+  @media (max-width: 480px) {
+    .av-nav { padding: 12px; gap: 8px; }
+    .av-nav .logo { gap: 8px; min-width: 0; }
+    .av-nav .logo-text { font-size: 10px; letter-spacing: 0.08em; }
+    .av-nav .auth-btn { margin-left: 0; padding: 10px 12px; font-size: 9px; }
+    .av-nav .hamburger { padding: 10px 12px; }
+  }
+
   .av-mobile-panel {
     position: fixed;
     inset: 0 0 0 auto;

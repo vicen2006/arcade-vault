@@ -3,6 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GAMES, seededScores } from "@/lib/data";
 
+// Los ids salen de generateStaticParams: la navegación puede bloquear sin coste
+export const instant = false;
+
 export function generateStaticParams() {
   return GAMES.map((g) => ({ id: g.id }));
 }
