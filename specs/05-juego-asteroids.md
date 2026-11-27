@@ -1,6 +1,6 @@
 # SPEC 05 — Juego Asteroids (ROCAS) en la plataforma
 
-> **Status:** Draft
+> **Status:** Aprobado
 > **Depends on:** SPEC 01
 > **Date:** 2026-11-27
 > **Objective:** Portar a TypeScript el Asteroids de `references/started-games/02-asteroids/` y montarlo como juego real de la entrada `rocas` dentro del reproductor, alimentando su HUD y su modal de fin de partida.
