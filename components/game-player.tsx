@@ -115,12 +115,15 @@ export function GamePlayer({ game }: { game: Game }) {
       <div className="crt">
         <div className="crt-screen">
           {isRocas ? (
-            <AsteroidsCanvas
-              ref={engineRef}
-              onStats={setStats}
-              onGameOver={handleGameOver}
-              onPauseChange={handlePauseChange}
-            />
+            <>
+              <AsteroidsCanvas
+                ref={engineRef}
+                onStats={setStats}
+                onGameOver={handleGameOver}
+                onPauseChange={handlePauseChange}
+              />
+              <div className="keyboard-notice">REQUIERE TECLADO</div>
+            </>
           ) : (
             <div className="game-arena">
               <div className="grid-floor"></div>
