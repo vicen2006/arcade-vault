@@ -1,15 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import {
+  AsteroidsCanvas,
+  type AsteroidsHandle,
+} from "@/components/games/asteroids-canvas";
 import type { Game } from "@/lib/data";
+import type { AsteroidsStats } from "@/lib/games/asteroids/engine";
 import { useSession } from "@/lib/session";
 
 const LIVES = 3;
+const INITIAL_STATS: AsteroidsStats = { score: 0, lives: LIVES, level: 1 };
 
 export function GamePlayer({ game }: { game: Game }) {
   const { user } = useSession();
-  const [score, setScore] = useState(0);
+  const isRocas = game.id === "rocas";
+  const engineRef = useRef<AsteroidsHandle>(null);
+  const [mockScore, setMockScore] = useState(0);
+  const [stats, setStats] = useState<AsteroidsStats>(INITIAL_STATS);
   const [paused, setPaused] = useState(false);
   const [over, setOver] = useState(false);
   const [typedName, setTypedName] = useState<string | null>(null);
@@ -17,16 +26,51 @@ export function GamePlayer({ game }: { game: Game }) {
 
   // La sesión se lee tras el montaje, así que el nombre se deriva en vez de copiarse a un estado.
   const name = typedName ?? user?.name ?? "INVITADO";
-  const level = 1 + Math.floor(score / 2500);
+  // Rocas usa los valores reales del motor; el resto de juegos sigue con el mock
+  const score = isRocas ? stats.score : mockScore;
+  const lives = isRocas ? stats.lives : LIVES;
+  const level = isRocas ? stats.level : 1 + Math.floor(mockScore / 2500);
 
   useEffect(() => {
-    if (over || paused) return;
-    const t = setInterval(() => setScore((s) => s + Math.floor(10 + Math.random() * 90)), 220);
+    if (isRocas || over || paused) return;
+    const t = setInterval(() => setMockScore((s) => s + Math.floor(10 + Math.random() * 90)), 220);
     return () => clearInterval(t);
-  }, [over, paused]);
+  }, [isRocas, over, paused]);
+
+  const togglePause = () => {
+    const next = !paused;
+    setPaused(next);
+    if (isRocas) {
+      if (next) engineRef.current?.pause();
+      else engineRef.current?.resume();
+    }
+  };
+
+  const endGame = () => {
+    if (isRocas) engineRef.current?.pause();
+    setOver(true);
+  };
+
+  // Tecla P o pestaña oculta. Con el modal abierto la partida no se reanuda
+  const handlePauseChange = (value: boolean) => {
+    if (over) {
+      engineRef.current?.pause();
+      return;
+    }
+    setPaused(value);
+  };
+
+  const handleGameOver = () => {
+    setPaused(false);
+    setOver(true);
+  };
 
   const restart = () => {
-    setScore(0);
+    setMockScore(0);
+    if (isRocas) {
+      engineRef.current?.restart();
+      setStats(INITIAL_STATS);
+    }
     setPaused(false);
     setOver(false);
     setSaved(false);
@@ -48,7 +92,7 @@ export function GamePlayer({ game }: { game: Game }) {
           </div>
           <div className="hud-stat lives">
             <div className="l">Vidas</div>
-            <div className="v">{"♥ ".repeat(LIVES).trim()}</div>
+            <div className="v">{lives > 0 ? "♥ ".repeat(lives).trim() : "—"}</div>
           </div>
           <div className="hud-stat level">
             <div className="l">Nivel</div>
@@ -56,10 +100,10 @@ export function GamePlayer({ game }: { game: Game }) {
           </div>
         </div>
         <div className="hud-actions">
-          <button className="btn yellow" onClick={() => setPaused((p) => !p)}>
+          <button className="btn yellow" onClick={togglePause}>
             {paused ? "REANUDAR" : "PAUSA"}
           </button>
-          <button className="btn magenta" onClick={() => setOver(true)}>
+          <button className="btn magenta" onClick={endGame}>
             FIN
           </button>
           <Link href={`/juegos/${game.id}`} className="btn ghost">
@@ -70,13 +114,25 @@ export function GamePlayer({ game }: { game: Game }) {
 
       <div className="crt">
         <div className="crt-screen">
-          <div className="game-arena">
-            <div className="grid-floor"></div>
-            <div className="enemy e1"></div>
-            <div className="enemy e2"></div>
-            <div className="enemy e3"></div>
-            <div className="player-ship"></div>
-          </div>
+          {isRocas ? (
+            <>
+              <AsteroidsCanvas
+                ref={engineRef}
+                onStats={setStats}
+                onGameOver={handleGameOver}
+                onPauseChange={handlePauseChange}
+              />
+              <div className="keyboard-notice">REQUIERE TECLADO</div>
+            </>
+          ) : (
+            <div className="game-arena">
+              <div className="grid-floor"></div>
+              <div className="enemy e1"></div>
+              <div className="enemy e2"></div>
+              <div className="enemy e3"></div>
+              <div className="player-ship"></div>
+            </div>
+          )}
           {paused && (
             <div className="crt-content" style={{ background: "rgba(0,0,0,0.6)", zIndex: 5 }}>
               <div>

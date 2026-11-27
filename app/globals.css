@@ -199,6 +199,14 @@
     .av-nav .hamburger { display: inline-flex; }
   }
 
+  @media (max-width: 480px) {
+    .av-nav { padding: 12px; gap: 8px; }
+    .av-nav .logo { gap: 8px; min-width: 0; }
+    .av-nav .logo-text { font-size: 10px; letter-spacing: 0.08em; }
+    .av-nav .auth-btn { margin-left: 0; padding: 10px 12px; font-size: 9px; }
+    .av-nav .hamburger { padding: 10px 12px; }
+  }
+
   .av-mobile-panel {
     position: fixed;
     inset: 0 0 0 auto;
@@ -728,6 +736,28 @@
   .game-arena .e3 { top: 14%; left: 50%; background: var(--yellow); box-shadow: 0 0 8px var(--yellow); animation: drift 2.8s ease-in-out infinite; }
   @keyframes drift {
     50% { transform: translate(20px, 10px); }
+  }
+
+  /* canvas de ROCAS: lógico 800x600, escalado al ancho del CRT (4:3) */
+  .asteroids-canvas {
+    position: absolute; inset: 0;
+    display: block;
+    width: 100%; height: 100%;
+  }
+  .keyboard-notice {
+    display: none;
+    position: absolute; left: 0; right: 0; bottom: 8px;
+    z-index: 4;
+    text-align: center;
+    font-family: var(--pixel);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--yellow);
+    text-shadow: 0 0 8px var(--yellow);
+    pointer-events: none;
+  }
+  @media (pointer: coarse) {
+    .keyboard-notice { display: block; }
   }
 
   /* game over modal */

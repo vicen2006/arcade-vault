@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { GAMES } from "@/lib/data";
 import { GamePlayer } from "@/components/game-player";
 
+// Los ids salen de generateStaticParams: la navegación puede bloquear sin coste
+export const instant = false;
+
 export function generateStaticParams() {
   return GAMES.map((g) => ({ id: g.id }));
 }
